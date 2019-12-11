@@ -1,0 +1,163 @@
+﻿@model IEnumerable<ESystem.Models.Registration>
+@{
+    ViewBag.Title = "DisplayBallet";
+}
+
+<h2>DisplayBallet</h2>
+@using (@Html.BeginForm())
+{
+    <h1>President</h1>
+
+    <table id="president" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Educational Qualification</th>
+                <th>Occupation</th>
+                <th>Previous Rwa Member</th>
+                <th>Government Employee</th>
+                <th>Criminal Record</th>
+                <th>Vote</th>
+
+
+            </tr>
+            @foreach (var item in Model.Where(i => i.PositionForElections.Name == "President"))
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.EducationDetails</td>
+                    <td>@item.OccupationDetails</td>
+                    <td>@item.PreviousRWAMember</td>
+                    <td>@item.PartOfGovOrNgoOrPolice</td>
+                    <td>@item.CriminalRecord</td>
+                    <td>  <a href="@Url.Action("DisplayBallet","RWA",new { id=item.Id})" class="btn btn-danger">Vote</a></td>
+                </tr>
+            }
+        </thead>
+    </table>
+
+    <h1>Vice President</h1>
+
+    <table id="vicepresident" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Educational Qualification</th>
+                <th>Occupation</th>
+                <th>Previous Rwa Member</th>
+                <th>Government Employee</th>
+                <th>Criminal Record</th>
+                <th>Vote</th>
+
+
+            </tr>
+            @foreach (var item in Model.Where(i => i.PositionForElections.Name == "VicePresident"))
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.EducationDetails</td>
+                    <td>@item.OccupationDetails</td>
+                    <td>@item.PreviousRWAMember</td>
+                    <td>@item.PartOfGovOrNgoOrPolice</td>
+                    <td>@item.CriminalRecord</td>
+                    <td> 
+                        <div class="product-info smart-form"><a href="@Url.Action("DisplayBallet","RWA",new { id=item.Id})" class="btn btn-danger">Vote</a></div></td>
+                </tr>
+            }
+        </thead>
+    </table>
+
+    <h1>Secretary</h1>
+
+    <table id="secretary" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Educational Qualification</th>
+                <th>Occupation</th>
+                <th>Previous Rwa Member</th>
+                <th>Government Employee</th>
+                <th>Criminal Record</th>
+                <th>Vote</th>
+
+
+            </tr>
+            @foreach (var item in Model.Where(i => i.PositionForElections.Name == "Secretary"))
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.EducationDetails</td>
+                <td>@item.OccupationDetails</td>
+                <td>@item.PreviousRWAMember</td>
+                <td>@item.PartOfGovOrNgoOrPolice</td>
+                <td>@item.CriminalRecord</td>
+                <td>
+                <div class="product-info smart-form"> <a href="@Url.Action("DisplayBallet","RWA",new { id=item.Id})" class="btn btn-danger">Vote</a></div></td>
+            </tr>
+            }
+        </thead>
+    </table>
+    <h1>Treasurer</h1>
+
+    <table id="treasurer" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Educational Qualification</th>
+                <th>Occupation</th>
+                <th>Previous Rwa Member</th>
+                <th>Government Employee</th>
+                <th>Criminal Record</th>
+                <th>Vote</th>
+
+            </tr>
+            @foreach (var item in Model.Where(i => i.PositionForElections.Name == "Treasurer"))
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.EducationDetails</td>
+                <td>@item.OccupationDetails</td>
+                <td>@item.PreviousRWAMember</td>
+                <td>@item.PartOfGovOrNgoOrPolice</td>
+                <td>@item.CriminalRecord</td>
+                <td> 
+                    <div class="product-info smart-form"><a href="@Url.Action("DisplayBallet","RWA",new { id=item.Id})" class="btn btn-danger">Vote</a></div></td>
+            </tr>
+            }
+        </thead>
+    </table>
+
+    <h1>General Body Members</h1>
+
+    <table id="generalbodymembers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Educational Qualification</th>
+                <th>Occupation</th>
+                <th>Previous Rwa Member</th>
+                <th>Government Employee</th>
+                <th>Criminal Record</th>
+                <th>Vote</th>
+
+            </tr>
+            @foreach (var item in Model.Where(i => i.PositionForElections.Name == "GeneralBodyMembers"))
+            {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.EducationDetails</td>
+                <td>@item.OccupationDetails</td>
+                <td>@item.PreviousRWAMember</td>
+                <td>@item.PartOfGovOrNgoOrPolice</td>
+                <td>@item.CriminalRecord</td>
+                <td> <a href="@Url.Action("DisplayBallet","RWA",new { id=item.Id})" class="btn btn-danger">Vote</a></td>
+            </tr>
+            }
+        </thead>
+    </table>
+    <button type="submit">Submit</button>
+
+
+}
+

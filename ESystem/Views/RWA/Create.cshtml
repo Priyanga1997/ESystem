@@ -1,0 +1,72 @@
+﻿@model ESystem.ViewModel.RWAPositionViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (@Html.BeginForm("Create", "RWA"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "Please Fix the following Errors")
+
+    @*@Html.Hidden("CustomerId")*@
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Registration.Name)
+        @Html.TextBoxFor(m => m.Registration.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Registration.Name)
+    </div>
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Registration.DateOfBirth)
+        @Html.TextBoxFor(m => m.Registration.DateOfBirth, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Registration.DateOfBirth)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Registration.OccupationDetails)
+        @Html.TextBoxFor(m => m.Registration.OccupationDetails, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Registration.OccupationDetails)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Registration.EducationDetails)
+        @Html.TextBoxFor(m => m.Registration.EducationDetails, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Registration.EducationDetails)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Registration.PreviousRWAMember)
+        @Html.RadioButtonFor(m => m.Registration.PreviousRWAMember, "True")<span>Yes</span>
+        @Html.RadioButtonFor(m => m.Registration.PreviousRWAMember, "False")<span>No</span>
+
+        @*<input type="radio" name="PartOfGovOrNgoOrPolice" value="False" />No*@
+
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Registration.PartOfGovOrNgoOrPolice)
+        @Html.RadioButtonFor(m => m.Registration.PartOfGovOrNgoOrPolice, "True")<span>Yes</span>
+        @Html.RadioButtonFor(m => m.Registration.PartOfGovOrNgoOrPolice, "False")<span>No</span>
+
+        @*<input type="radio" name="PartOfGovOrNgoOrPolice" value="True" />Yes
+            <input type="radio" name="PartOfGovOrNgoOrPolice" value="False" />No*@
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Registration.CriminalRecord)
+        @Html.RadioButtonFor(m => m.Registration.CriminalRecord, "True")<span>Yes</span>
+        @Html.RadioButtonFor(m => m.Registration.CriminalRecord, "False")<span>No</span>
+
+        @*<input type="radio" name="CriminalRecord" value="true" />Yes
+            <input type="radio" name="CriminalRecord" value="false" />No*@
+    </div>
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Registration.PositionForElectionsId)
+        @Html.DropDownListFor(m => m.Registration.PositionForElectionsId, new SelectList(Model.PositionForElections, "Id", "Name"), "Select Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Registration.PositionForElectionsId)
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")}
+

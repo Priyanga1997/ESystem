@@ -1,0 +1,28 @@
+﻿@model  ESystem.Models.ResidentDetails
+@{
+    ViewBag.Title = "CheckingEligibility";
+}
+
+<h2>Checking Eligibility</h2>
+
+<div class="container">
+   @*<form id="form1" action="@Url.Action("CheckingEligibility","RWA")" method="post">
+       <input id="jonpg" type="text" name="jonpg" />
+       <input type="submit" value="submit" onclick="Checking()" />
+       </form>
+    <script type="text/javascript">
+        function Checking() {
+            var formaction = document.getElementById('form1')+"/";
+            formaction.action +=document.getElementById('jonpg').value;
+
+        }
+    </script>*@
+    @using (Html.BeginForm("CheckingEligibility", "RWA" ,FormMethod.Post)) {
+        @Html.Label("RegisterId")
+        @Html.TextBox("id")
+        <input type="submit" value="submit" />
+    }
+    
+</div>
+
+
